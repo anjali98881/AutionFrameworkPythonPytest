@@ -8,11 +8,11 @@ class LoginPage:
         self.driver = driver
         self.username_input = (By.NAME, 'username')
         self.password_input = (By.NAME, 'password')
-        self.login_button = (By.XPATH, '//button[contains(text(), "Log In")]')
-        self.logged_in_message = (By.XPATH, '//div[contains(text(), "You are logged in!")]')
+        self.login_button = (By.ID, 'btn-login')
+        self.appointment_page_heading = (By.XPATH, '//*[@id="appointment"]/div/div/div/h2')
     
     def login(self, username, password):
-        self.driver.get("https://example.com/login")
+        self.driver.get("https://katalon-demo-cura.herokuapp.com/profile.php#login")
         WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(self.username_input))
         self.driver.find_element(*self.username_input).send_keys(username)
         self.driver.find_element(*self.password_input).send_keys(password)
@@ -20,7 +20,7 @@ class LoginPage:
     
     def is_logged_in(self):
         try:
-            WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(self.logged_in_message))
+            WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(self.appointment_page_heading))
             return True
         except TimeoutException:
             return False
