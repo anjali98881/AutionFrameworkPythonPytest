@@ -1,7 +1,11 @@
 import pytest
+
+import sys
+sys.path.append(r'.../AutomationFrameworkPythonPytest')
+
 from pages.login import LoginPage
-from utils.helpers import get_config_value
-from logger import Logger
+from utils.helpers import *
+from utils.logger import Logger
 
 logger = Logger('test.log')
 
