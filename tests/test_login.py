@@ -1,7 +1,7 @@
 import pytest
 
-import sys
-sys.path.append(r'.../AutomationFrameworkPythonPytest')
+#import sys
+#sys.path.append(r'.../AutomationFrameworkPythonPytest') add path here
 
 from pages.login import LoginPage
 from utils.helpers import *
